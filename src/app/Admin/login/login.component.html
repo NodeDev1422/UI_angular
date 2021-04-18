@@ -1,0 +1,106 @@
+
+
+<body class="hold-transition lockscreen">
+  <!-- Automatic element centering -->
+  <div class="lockscreen-wrapper">
+    <div class="lockscreen-logo">
+      <a href=""><b>Onpassive</b>Test</a>
+    </div>
+    <!-- User name -->
+    <div class="lockscreen-name"></div>
+  
+    <!-- START LOCK SCREEN ITEM -->
+    <div class="lockscreen-item" style="
+    width: 90%;
+">
+      <!-- lockscreen image -->
+     
+      <!-- /.lockscreen-image -->
+  
+      <!-- lockscreen credentials (contains the form) -->
+
+      <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <!-- left column -->
+  
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+              <!-- jquery validation -->
+              <div class="card card-primary">
+                <div class="card-header">
+                  <h3 class="card-title">Login </h3>
+                  
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+              
+                <form class="quickForm" [formGroup]="loginForm" (ngSubmit)="login()">
+                  <div class="card-body">
+                      
+                  
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email <span class="err">*</span></label>
+                    <input type="text" name="email" class="form-control" formControlName="email"  placeholder="Enter Email">
+                    <div *ngIf="loginForm.controls.email.errors" class="err">
+                      <div *ngIf="loginForm.controls.email.errors.required">
+                          Please Enter Email
+                      </div>
+                      <div *ngIf="loginForm.controls.email.errors.pattern">
+                        Please Enter valid Email
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Password <span class="err">*</span></label>
+                  <input type="password" name="password" class="form-control" formControlName="password"  placeholder="Enter Password">
+                  <div *ngIf="loginForm.controls.password.errors" class="err">
+                    <div *ngIf="loginForm.controls.password.errors.required">
+                        Please Enter Password
+                    </div>
+                </div>
+                </div>
+                
+
+                <div>
+                  <a routerLink="/forgotpassword">Fotgot Password</a>
+                  <a routerLink="/signup" style="float: right;">Signup</a>
+                </div>
+
+                  </div>
+                  <!-- /.card-body -->
+                  <div class="card-footer">
+                    <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Submit</button>
+                  </div>
+                </form>
+             
+             
+              </div>
+              <!-- /.card -->
+              </div>
+              <div class="col-md-1"></div>
+            <!--/.col (left) -->
+            <!-- right column -->
+          
+            <!--/.col (right) -->
+          </div>
+          <!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </section>
+
+
+     
+      <!-- /.lockscreen credentials -->
+  
+    </div>
+    <!-- /.lockscreen-item -->
+   
+    <div class="lockscreen-footer text-center">
+      Copyright &copy; 2014-2021 <b><a class="text-black"></a></b><br>
+      All rights reserved
+    </div>
+  </div>
+  <!-- /.center -->
+  
+  </body>

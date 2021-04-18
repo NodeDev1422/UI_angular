@@ -1,0 +1,74 @@
+
+
+<app-header></app-header>
+<app-sidemenu></app-sidemenu>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+ <br>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title" style="float: right !important;"><a routerLink="/addEmployee">Add Employee</a></h3>
+              <h4>View Employees</h4>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              
+              <table datatable [dtOptions]="dtOptions" class="row-border hover" *ngIf="flg">
+                <thead class='thead-dark'>
+                  <tr>
+                    <td>#</td>
+                    <td>Employee Name</td>
+                    <td>Job Title</td>
+                    <td>Emp Id</td>
+                    <td>Department</td>
+                    <td>Location</td>
+                    <td>Age</td>
+                    <td>Salary</td>
+                    <td>Edit</td>
+                    <td>Action</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor='let users of employeesList; let i = index'>
+                    <td>{{i+1}}</td>
+                    <td>{{users.full_name}}</td>
+                    <td>{{users.job_title}}</td>
+                    <td>{{users.emp_id}}</td>
+                    <td>{{users.department}}</td>
+                    <td>{{users.location}}</td>
+                    <td>{{users.age}}</td>
+                    <td>{{users.salary}}</td>
+                    <td> <span><button class="btn btn-primary" (click)="edit(users)">Edit</button></span></td>
+                    <td>
+                     
+                      <span *ngIf="users.status == 'Y'"><button class="btn btn-danger" (click)="stateChange('N',users._id)">Disable</button></span>
+                      <span *ngIf="users.status == 'N'"><button class="btn btn-success" (click)="stateChange('Y',users._id)">Enable</button></span>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+
